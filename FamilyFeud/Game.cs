@@ -13,13 +13,11 @@ namespace FamilyFeud
 {
     public partial class Game : Form
     {
-        // ----- Game state -----
-        private Panel[] answerCovers;   // pnlCover1 .. pnlCover8 (created in code)
+
+        private Panel[] answerCovers;   
         private int team1Score = 0;
         private int team2Score = 0;
-        private int activeTeam = 1;     // which team gets the points when a cover is clicked
-
-
+        private int activeTeam = 1;    
 
         public void DisplayQuestionSet(QuestionSet set)
         {
@@ -43,7 +41,7 @@ namespace FamilyFeud
                     pointsLabel.Text = "";
                 }
 
-                // Covers come back for a new question; empty slots stay uncovered
+
                 if (answerCovers != null)
                     answerCovers[i - 1].Visible = (match != null);
             }
@@ -54,7 +52,7 @@ namespace FamilyFeud
             InitializeComponent();
             CreateCovers();
 
-            // Re-run the layout if the window size ever changes
+
             this.Resize += (s, e) =>
             {
                 CenterQuestion();
@@ -70,18 +68,17 @@ namespace FamilyFeud
             this.WindowState = FormWindowState.Maximized;
             this.Bounds = Screen.PrimaryScreen.Bounds;
 
-            // Key presses: the form must see them before the controls do
             this.KeyPreview = true;
-            this.KeyDown -= Game_KeyDown;   // avoids double-firing if the designer already hooked it
+            this.KeyDown -= Game_KeyDown;
             this.KeyDown += Game_KeyDown;
 
             this.KeyUp -= Game_KeyUp;
             this.KeyUp += Game_KeyUp;
 
             CenterQuestion();
-            ArrangeTeamBoxes();     // 1st pass: places the lists so they have a real width
-            SetupStrikeLists();     // measures that width and builds the X icons
-            ArrangeTeamBoxes();     // 2nd pass: applies the list height and icon spacing
+            ArrangeTeamBoxes();     
+            SetupStrikeLists();     
+            ArrangeTeamBoxes();    
             ArrangeCovers();
             ArrangeBottomButtons();
 
@@ -113,9 +110,7 @@ namespace FamilyFeud
             }
         }
 
-        // =====================================================
-        //  COVER PANELS + SCORING
-        // =====================================================
+
         private void CreateCovers()
         {
             answerCovers = new Panel[8];
@@ -123,7 +118,7 @@ namespace FamilyFeud
             {
                 var p = new Panel();
                 p.Name = $"pnlCover{i + 1}";
-                p.Tag = i + 1;                       // slot number, drawn on the cover
+                p.Tag = i + 1;                      
                 p.BackColor = Color.RoyalBlue;
                 p.BorderStyle = BorderStyle.FixedSingle;
                 p.Cursor = Cursors.Hand;
@@ -146,7 +141,7 @@ namespace FamilyFeud
 
             if (isStealMode)
             {
-                // Stealing team takes the other team's ENTIRE score, plus this panel's points
+
                 if (activeTeam == 1)
                 {
                     team1Score += team2Score + points;
@@ -163,7 +158,7 @@ namespace FamilyFeud
             }
             else
             {
-                // Normal play — just add this panel's points to whoever's active
+
                 if (activeTeam == 1) team1Score += points;
                 else team2Score += points;
             }
@@ -191,13 +186,13 @@ namespace FamilyFeud
             Label[] answers = { lblQuestion1, lblQuestion2, lblQuestion3, lblQuestion4,
                                 lblQuestion5, lblQuestion6, lblQuestion7, lblQuestion8 };
 
-            // Horizontal span of each column (as a fraction of the form width)
+
             int leftColLeft = (int)(w * 0.19);
             int leftColRight = (int)(w * 0.47);
             int rightColLeft = (int)(w * 0.54);
             int rightColRight = (int)(w * 0.81);
 
-            int rowHeight = lblQuestion2.Top - lblQuestion1.Top - 15;  // leaves a small gap between rows
+            int rowHeight = lblQuestion2.Top - lblQuestion1.Top - 15; 
 
             for (int i = 0; i < 8; i++)
             {
@@ -223,26 +218,24 @@ namespace FamilyFeud
             label2.ForeColor = (team == 2) ? Color.Red : Color.Black;
         }
 
-        // =====================================================
-        //  LAYOUT
-        // =====================================================
+
         private void CenterQuestion()
         {
             int formWidth = this.ClientSize.Width;
             int centerX = formWidth / 2;
 
-            // Center the question row near the top
+
             int qTotalWidth = label3.Width + 10 + lbQuestionare.Width;
             label3.Left = centerX - (qTotalWidth / 2);
             label3.Top = 67;
             lbQuestionare.Left = label3.Right + 10;
             lbQuestionare.Top = 67;
 
-            int topMargin = 250; // vertical position
+            int topMargin = 250; 
             int rowGap = 100;
 
-            // ----- LEFT COLUMN (Questions 1-4) -----
-            int leftMargin = (int)(formWidth * 0.20);   // 20% in from the left edge
+
+            int leftMargin = (int)(formWidth * 0.20); 
             lblQuestion1.Left = leftMargin;
             lblQuestion2.Left = leftMargin;
             lblQuestion3.Left = leftMargin;
@@ -253,8 +246,8 @@ namespace FamilyFeud
             lblQuestion3.Top = topMargin + (rowGap * 2);
             lblQuestion4.Top = topMargin + (rowGap * 3);
 
-            // Points 1-4
-            int leftMarginp = (int)(formWidth * 0.40);  // 40% in from the left edge
+
+            int leftMarginp = (int)(formWidth * 0.40);  
             lblQuestionPoints1.Left = leftMarginp;
             lblQuestionPoints2.Left = leftMarginp;
             lblQuestionPoints3.Left = leftMarginp;
@@ -265,14 +258,13 @@ namespace FamilyFeud
             lblQuestionPoints3.Top = lblQuestion3.Top;
             lblQuestionPoints4.Top = lblQuestion4.Top;
 
-            // ----- RIGHT COLUMN (Questions 5-8) -----
-            // Every answer starts at the same X and grows to the RIGHT.
-            int rightColumnLeft = (int)(formWidth * 0.55);   // where the first letter of each answer starts
+
+            int rightColumnLeft = (int)(formWidth * 0.55); 
 
             Label[] rightAnswers = { lblQuestion5, lblQuestion6, lblQuestion7, lblQuestion8 };
             foreach (Label lbl in rightAnswers)
             {
-                lbl.AutoSize = true;                          // label grows with the text
+                lbl.AutoSize = true;                       
                 lbl.TextAlign = ContentAlignment.TopLeft;
                 lbl.Left = rightColumnLeft;
             }
@@ -282,8 +274,8 @@ namespace FamilyFeud
             lblQuestion7.Top = topMargin + (rowGap * 2);
             lblQuestion8.Top = topMargin + (rowGap * 3);
 
-            // Points 5-8
-            int rightMarginp = (int)(formWidth * 0.20);  // 20% in from the right edge
+
+            int rightMarginp = (int)(formWidth * 0.20);  
             lblQuestionPoints5.Left = formWidth - rightMarginp - lblQuestionPoints5.Width;
             lblQuestionPoints6.Left = formWidth - rightMarginp - lblQuestionPoints6.Width;
             lblQuestionPoints7.Left = formWidth - rightMarginp - lblQuestionPoints7.Width;
@@ -300,7 +292,7 @@ namespace FamilyFeud
             int w = this.ClientSize.Width;
             int h = this.ClientSize.Height;
 
-            // Box size/position (tuned to match your green boxes)
+
             int boxWidth = (int)(w * 0.14);
             int boxTop = (int)(h * 0.37);
             int boxHeight = (int)(h * 0.31);
@@ -308,7 +300,6 @@ namespace FamilyFeud
             int leftBoxLeft = (int)(w * 0.02);
             int rightBoxLeft = (int)(w * 0.84);
 
-            // Team 1 -> RIGHT box, Team 2 -> LEFT box
             PlaceTeamInBox(label1, lblTeamOnePoints, lvTeamOneWrong,
                            rightBoxLeft, boxTop, boxWidth, boxHeight);
 
@@ -319,12 +310,12 @@ namespace FamilyFeud
         private void PlaceTeamInBox(Label teamLabel, Label pointsLabel, ListView wrongList,
                                     int boxLeft, int boxTop, int boxWidth, int boxHeight)
         {
-            int pad = 10;   // space between the box edge and the controls
-            int gap = 25;   // vertical space between team label, points label, and listview
+            int pad = 10;   
+            int gap = 25;   
             int innerWidth = boxWidth - (pad * 2);
             int y = boxTop + pad;
 
-            // Team name (centered in the box)
+
             teamLabel.AutoSize = false;
             teamLabel.TextAlign = ContentAlignment.MiddleCenter;
             teamLabel.Width = innerWidth;
@@ -332,7 +323,7 @@ namespace FamilyFeud
             teamLabel.Top = y;
             y += teamLabel.Height + gap;
 
-            // Team points (centered in the box)
+
             pointsLabel.AutoSize = false;
             pointsLabel.TextAlign = ContentAlignment.MiddleCenter;
             pointsLabel.Width = innerWidth;
@@ -340,14 +331,14 @@ namespace FamilyFeud
             pointsLabel.Top = y;
             y += pointsLabel.Height + gap;
 
-            // Wrong-answers (X) listview
+
             wrongList.Left = boxLeft + pad;
             wrongList.Top = y;
             wrongList.Width = innerWidth;
             wrongList.Height = (strikeListHeight > 0 ? strikeListHeight : 110) + ListExtraHeight;
             wrongList.Width = innerWidth + ListExtraWidth;
 
-            // Exactly 3 X's per row: each slot is 1/3 of the list width
+ 
             if (strikeImages != null)
                 SetIconSpacing(wrongList, strikeSlotWidth, strikeIconH + 6);
         }
@@ -359,7 +350,7 @@ namespace FamilyFeud
         private int strikeListHeight = 0;
         private int strikeSlotWidth = 0;
 
-        // Lets us control the exact spacing between the X icons in a ListView
+
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
         private const int LVM_SETICONSPACING = 0x1035;
@@ -371,21 +362,21 @@ namespace FamilyFeud
 
         private void SetupStrikeLists()
         {
-            // 1) Configure the lists first (some of these recreate the control, so do them before measuring)
+
             foreach (ListView lv in new[] { lvTeamOneWrong, lvTeamTwoWrong })
             {
                 lv.View = View.LargeIcon;
-                lv.Alignment = ListViewAlignment.Top;   // items fill left -> right
+                lv.Alignment = ListViewAlignment.Top; 
                 lv.Scrollable = false;
                 lv.MultiSelect = false;
                 lv.HideSelection = true;
                 lv.BorderStyle = BorderStyle.None;
 
-                // No blue highlight when clicked
+
                 lv.ItemSelectionChanged += (s, ev) => { if (ev.IsSelected) ev.Item.Selected = false; };
             }
 
-            // 2) Start with big icons and shrink them until all 3 really fit in the list
+           
             int listW = lvTeamOneWrong.ClientSize.Width - ListExtraWidth;
             strikeSlotWidth = listW / MaxStrikes;
             int iconW = strikeSlotWidth;
@@ -402,11 +393,11 @@ namespace FamilyFeud
 
         private void ApplyStrikeIconSize(int iconW)
         {
-            strikeIconH = (int)(iconW * 400.0 / 324.0);     // keeps the image's proportions
+            strikeIconH = (int)(iconW * 400.0 / 324.0);     
 
             var newImages = new ImageList();
             newImages.ColorDepth = ColorDepth.Depth32Bit;
-            newImages.ImageSize = new Size(iconW, strikeIconH);   // set the size BEFORE adding images
+            newImages.ImageSize = new Size(iconW, strikeIconH); 
             newImages.Images.Add("x", Properties.Resources.WrongSymbol);
 
             lvTeamOneWrong.LargeImageList = newImages;
@@ -418,7 +409,7 @@ namespace FamilyFeud
             strikeImages = newImages;
         }
 
-        // Adds 3 test X's, checks where Windows put the last one, then removes them
+
         private bool StrikesFit(ListView lv, int iconW)
         {
             lv.Items.Clear();
@@ -429,7 +420,7 @@ namespace FamilyFeud
             Point last = lv.Items[MaxStrikes - 1].Position;
 
             bool sameRow = (last.Y == first.Y);
-            bool insideList = (last.X + iconW + 8 <= lv.ClientSize.Width);   // 8px safety margin
+            bool insideList = (last.X + iconW + 8 <= lv.ClientSize.Width);   
 
             lv.Items.Clear();
             return sameRow && insideList;
@@ -438,14 +429,14 @@ namespace FamilyFeud
         private bool roundLocked = false;
         private void AddStrike(int team)
         {
-            if (roundLocked) return;   // round is over — no more strikes count for anyone
+            if (roundLocked) return;   
 
             if (isStealMode)
             {
                 ListView stealList = (team == 1) ? lvTeamOneWrong : lvTeamTwoWrong;
                 stealList.Items.Add(new ListViewItem("", "x"));
                 isStealMode = false;
-                roundLocked = true;    // steal attempt is used up — lock the round completely
+                roundLocked = true;   
                 return;
             }
 
@@ -505,8 +496,8 @@ namespace FamilyFeud
             int w = this.ClientSize.Width;
             int h = this.ClientSize.Height;
 
-            int margin = (int)(w * 0.02);      // distance from left/right edges
-            int bottomGap = (int)(h * 0.04);   // distance from the bottom edge
+            int margin = (int)(w * 0.02);      
+            int bottomGap = (int)(h * 0.04);   
 
             btnFinish.Left = margin;
             btnFinish.Top = h - bottomGap - btnFinish.Height;

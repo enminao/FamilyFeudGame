@@ -112,20 +112,18 @@ namespace FamilyFeud
             int h = this.ClientSize.Height;
             int centerX = w / 2;
 
-            // ----- Top Question row (blue) -----
             int qTotalWidth = lblTopQuestion.Width + 10 + txtbCreateQuestionare.Width;
             lblTopQuestion.Left = centerX - (qTotalWidth / 2);
             lblTopQuestion.Top = (int)(h * 0.05);
             txtbCreateQuestionare.Left = lblTopQuestion.Right + 10;
             txtbCreateQuestionare.Top = lblTopQuestion.Top - 3;
 
-            // ----- Answer grid (red) -----
             int topMargin = (int)(h * 0.20);
             int rowGap = (int)(h * 0.08);
             int labelTextboxGap = 10;
             int pairGap = 20;
 
-            // Left column: Questions 1-4
+
             int leftColLeft = (int)(w * 0.10);
             Label[] leftLabels = { lblQ1, lblQ2, lblQ3, lblQ4 };
             TextBox[] leftBoxes = { txtbCreateQuestion1, txtbCreateQuestion2, txtbCreateQuestion3, txtbCreateQuestion4 };
@@ -145,7 +143,7 @@ namespace FamilyFeud
                 leftPBoxes[i].Top = rowTop - 3;
             }
 
-            // Right column: Questions 5-8
+
             int rightColLeft = (int)(w * 0.52);
             Label[] rightLabels = { lblQ5, lblQ6, lblQ7, lblQ8 };
             TextBox[] rightBoxes = { txtbCreateQuestion5, txtbCreateQuestion6, txtbCreateQuestion7, txtbCreateQuestion8 };
@@ -165,7 +163,6 @@ namespace FamilyFeud
                 rightPBoxes[i].Top = rowTop - 3;
             }
 
-            // ----- Bottom buttons (yellow) -----
             int sideInset = (int)(w * 0.08);
             int bottomGap = (int)(h * 0.04);
 

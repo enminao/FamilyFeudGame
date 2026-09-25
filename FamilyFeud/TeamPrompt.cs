@@ -17,7 +17,7 @@ namespace FamilyFeud
                 f.Text = "Family Feud";
                 f.FormBorderStyle = FormBorderStyle.FixedDialog;
                 f.StartPosition = FormStartPosition.CenterParent;
-                f.ControlBox = false;          // no X button, so a team must be picked
+                f.ControlBox = false;        
                 f.ShowInTaskbar = false;
                 f.ClientSize = new Size(360, 140);
 
@@ -34,17 +34,17 @@ namespace FamilyFeud
                 var btnTeam1 = new Button
                 {
                     Text = "Team 1",
-                    DialogResult = DialogResult.Yes,   // Yes = Team 1
+                    DialogResult = DialogResult.Yes,   
                     Size = new Size(140, 40),
-                    Location = new Point(190, 80)      // moved to the right
+                    Location = new Point(190, 80)     
                 };
 
                 var btnTeam2 = new Button
                 {
                     Text = "Team 2",
-                    DialogResult = DialogResult.No,    // No = Team 2
+                    DialogResult = DialogResult.No,    
                     Size = new Size(140, 40),
-                    Location = new Point(30, 80)       // moved to the left
+                    Location = new Point(30, 80)     
                 };
 
 

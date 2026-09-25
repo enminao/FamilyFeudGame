@@ -59,7 +59,7 @@ namespace FamilyFeud
         {
             int centerX = this.ClientSize.Width / 2;
 
-            // Center the list horizontally near the top
+
 
             lvQuestions.Width = 500;
             lvQuestions.Height = 250;
@@ -67,9 +67,9 @@ namespace FamilyFeud
             lvQuestions.Left = centerX - (lvQuestions.Width / 2);
             lvQuestions.Top = 250;
 
-            // Center the two buttons together as a pair, below the list
-            int buttonGap = 100; // gap between Create and Go Back
-            int totalWidth = btnCreate.Width + buttonGap + btnGoBackToStart.Width; // 131 + 100 + 131 = 362
+
+            int buttonGap = 100; 
+            int totalWidth = btnCreate.Width + buttonGap + btnGoBackToStart.Width; 
 
             int startX = centerX - (totalWidth / 2);
             int buttonsY = lvQuestions.Bottom + 20;
