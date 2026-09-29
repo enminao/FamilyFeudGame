@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTopQuestion = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create));
             this.txtbCreateQuestion1 = new System.Windows.Forms.TextBox();
             this.txtbCreatePoints1 = new System.Windows.Forms.TextBox();
             this.txtbCreateQuestion2 = new System.Windows.Forms.TextBox();
@@ -45,36 +45,32 @@
             this.txtbCreateQuestion6 = new System.Windows.Forms.TextBox();
             this.txtbCreatePoints5 = new System.Windows.Forms.TextBox();
             this.txtbCreateQuestion5 = new System.Windows.Forms.TextBox();
-            this.lblQ1 = new System.Windows.Forms.Label();
-            this.lblQ6 = new System.Windows.Forms.Label();
-            this.lblQ2 = new System.Windows.Forms.Label();
-            this.lblQ5 = new System.Windows.Forms.Label();
-            this.lblQ3 = new System.Windows.Forms.Label();
-            this.lblQ4 = new System.Windows.Forms.Label();
-            this.lblQ7 = new System.Windows.Forms.Label();
-            this.lblQ8 = new System.Windows.Forms.Label();
-            this.lblP1 = new System.Windows.Forms.Label();
-            this.lblP4 = new System.Windows.Forms.Label();
-            this.lblP2 = new System.Windows.Forms.Label();
-            this.lblP3 = new System.Windows.Forms.Label();
-            this.lblP5 = new System.Windows.Forms.Label();
-            this.lblP6 = new System.Windows.Forms.Label();
-            this.lblP7 = new System.Windows.Forms.Label();
-            this.lblP8 = new System.Windows.Forms.Label();
             this.txtbCreateQuestionare = new System.Windows.Forms.TextBox();
             this.btnFinishCreate = new System.Windows.Forms.Button();
             this.btnGoBackToAfterStart = new System.Windows.Forms.Button();
+            this.pbQuestionLabel = new System.Windows.Forms.PictureBox();
+            this.pbQuestionFrame = new System.Windows.Forms.PictureBox();
+            this.pbRow1 = new System.Windows.Forms.PictureBox();
+            this.pbRow2 = new System.Windows.Forms.PictureBox();
+            this.pbRow3 = new System.Windows.Forms.PictureBox();
+            this.pbRow4 = new System.Windows.Forms.PictureBox();
+            this.pbRow8 = new System.Windows.Forms.PictureBox();
+            this.pbRow7 = new System.Windows.Forms.PictureBox();
+            this.pbRow6 = new System.Windows.Forms.PictureBox();
+            this.pbRow5 = new System.Windows.Forms.PictureBox();
+            this.pbAnswersFrame = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionFrame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnswersFrame)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblTopQuestion
-            // 
-            this.lblTopQuestion.AutoSize = true;
-            this.lblTopQuestion.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTopQuestion.Location = new System.Drawing.Point(169, 47);
-            this.lblTopQuestion.Name = "lblTopQuestion";
-            this.lblTopQuestion.Size = new System.Drawing.Size(150, 39);
-            this.lblTopQuestion.TabIndex = 18;
-            this.lblTopQuestion.Text = "Question:";
             // 
             // txtbCreateQuestion1
             // 
@@ -145,7 +141,7 @@
             this.txtbCreatePoints8.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbCreatePoints8.Location = new System.Drawing.Point(1295, 289);
             this.txtbCreatePoints8.Name = "txtbCreatePoints8";
-            this.txtbCreatePoints8.Size = new System.Drawing.Size(70, 73);
+            this.txtbCreatePoints8.Size = new System.Drawing.Size(50, 73);
             this.txtbCreatePoints8.TabIndex = 35;
             // 
             // txtbCreateQuestion8
@@ -161,7 +157,7 @@
             this.txtbCreatePoints7.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbCreatePoints7.Location = new System.Drawing.Point(1295, 235);
             this.txtbCreatePoints7.Name = "txtbCreatePoints7";
-            this.txtbCreatePoints7.Size = new System.Drawing.Size(70, 73);
+            this.txtbCreatePoints7.Size = new System.Drawing.Size(50, 73);
             this.txtbCreatePoints7.TabIndex = 33;
             // 
             // txtbCreateQuestion7
@@ -177,7 +173,7 @@
             this.txtbCreatePoints6.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbCreatePoints6.Location = new System.Drawing.Point(1295, 176);
             this.txtbCreatePoints6.Name = "txtbCreatePoints6";
-            this.txtbCreatePoints6.Size = new System.Drawing.Size(70, 73);
+            this.txtbCreatePoints6.Size = new System.Drawing.Size(50, 73);
             this.txtbCreatePoints6.TabIndex = 31;
             // 
             // txtbCreateQuestion6
@@ -193,7 +189,7 @@
             this.txtbCreatePoints5.Font = new System.Drawing.Font("Comic Sans MS", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbCreatePoints5.Location = new System.Drawing.Point(1295, 117);
             this.txtbCreatePoints5.Name = "txtbCreatePoints5";
-            this.txtbCreatePoints5.Size = new System.Drawing.Size(70, 73);
+            this.txtbCreatePoints5.Size = new System.Drawing.Size(50, 73);
             this.txtbCreatePoints5.TabIndex = 29;
             // 
             // txtbCreateQuestion5
@@ -203,166 +199,6 @@
             this.txtbCreateQuestion5.Name = "txtbCreateQuestion5";
             this.txtbCreateQuestion5.Size = new System.Drawing.Size(392, 73);
             this.txtbCreateQuestion5.TabIndex = 28;
-            // 
-            // lblQ1
-            // 
-            this.lblQ1.AutoSize = true;
-            this.lblQ1.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ1.Location = new System.Drawing.Point(95, 138);
-            this.lblQ1.Name = "lblQ1";
-            this.lblQ1.Size = new System.Drawing.Size(143, 39);
-            this.lblQ1.TabIndex = 36;
-            this.lblQ1.Text = "Answer 1";
-            // 
-            // lblQ6
-            // 
-            this.lblQ6.AutoSize = true;
-            this.lblQ6.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ6.Location = new System.Drawing.Point(678, 224);
-            this.lblQ6.Name = "lblQ6";
-            this.lblQ6.Size = new System.Drawing.Size(143, 39);
-            this.lblQ6.TabIndex = 37;
-            this.lblQ6.Text = "Answer 6";
-            // 
-            // lblQ2
-            // 
-            this.lblQ2.AutoSize = true;
-            this.lblQ2.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ2.Location = new System.Drawing.Point(80, 213);
-            this.lblQ2.Name = "lblQ2";
-            this.lblQ2.Size = new System.Drawing.Size(143, 39);
-            this.lblQ2.TabIndex = 37;
-            this.lblQ2.Text = "Answer 2";
-            // 
-            // lblQ5
-            // 
-            this.lblQ5.AutoSize = true;
-            this.lblQ5.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ5.Location = new System.Drawing.Point(678, 171);
-            this.lblQ5.Name = "lblQ5";
-            this.lblQ5.Size = new System.Drawing.Size(143, 39);
-            this.lblQ5.TabIndex = 38;
-            this.lblQ5.Text = "Answer 5";
-            // 
-            // lblQ3
-            // 
-            this.lblQ3.AutoSize = true;
-            this.lblQ3.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ3.Location = new System.Drawing.Point(80, 292);
-            this.lblQ3.Name = "lblQ3";
-            this.lblQ3.Size = new System.Drawing.Size(143, 39);
-            this.lblQ3.TabIndex = 38;
-            this.lblQ3.Text = "Answer 3";
-            // 
-            // lblQ4
-            // 
-            this.lblQ4.AutoSize = true;
-            this.lblQ4.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ4.Location = new System.Drawing.Point(95, 419);
-            this.lblQ4.Name = "lblQ4";
-            this.lblQ4.Size = new System.Drawing.Size(143, 39);
-            this.lblQ4.TabIndex = 39;
-            this.lblQ4.Text = "Answer 4";
-            // 
-            // lblQ7
-            // 
-            this.lblQ7.AutoSize = true;
-            this.lblQ7.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ7.Location = new System.Drawing.Point(678, 289);
-            this.lblQ7.Name = "lblQ7";
-            this.lblQ7.Size = new System.Drawing.Size(143, 39);
-            this.lblQ7.TabIndex = 40;
-            this.lblQ7.Text = "Answer 7";
-            // 
-            // lblQ8
-            // 
-            this.lblQ8.AutoSize = true;
-            this.lblQ8.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ8.Location = new System.Drawing.Point(678, 343);
-            this.lblQ8.Name = "lblQ8";
-            this.lblQ8.Size = new System.Drawing.Size(143, 39);
-            this.lblQ8.TabIndex = 41;
-            this.lblQ8.Text = "Answer 8";
-            // 
-            // lblP1
-            // 
-            this.lblP1.AutoSize = true;
-            this.lblP1.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP1.Location = new System.Drawing.Point(747, 458);
-            this.lblP1.Name = "lblP1";
-            this.lblP1.Size = new System.Drawing.Size(126, 39);
-            this.lblP1.TabIndex = 42;
-            this.lblP1.Text = "Points 1";
-            // 
-            // lblP4
-            // 
-            this.lblP4.AutoSize = true;
-            this.lblP4.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP4.Location = new System.Drawing.Point(747, 630);
-            this.lblP4.Name = "lblP4";
-            this.lblP4.Size = new System.Drawing.Size(126, 39);
-            this.lblP4.TabIndex = 43;
-            this.lblP4.Text = "Points 4";
-            // 
-            // lblP2
-            // 
-            this.lblP2.AutoSize = true;
-            this.lblP2.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP2.Location = new System.Drawing.Point(747, 517);
-            this.lblP2.Name = "lblP2";
-            this.lblP2.Size = new System.Drawing.Size(126, 39);
-            this.lblP2.TabIndex = 43;
-            this.lblP2.Text = "Points 2";
-            // 
-            // lblP3
-            // 
-            this.lblP3.AutoSize = true;
-            this.lblP3.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP3.Location = new System.Drawing.Point(747, 576);
-            this.lblP3.Name = "lblP3";
-            this.lblP3.Size = new System.Drawing.Size(126, 39);
-            this.lblP3.TabIndex = 44;
-            this.lblP3.Text = "Points 3";
-            // 
-            // lblP5
-            // 
-            this.lblP5.AutoSize = true;
-            this.lblP5.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP5.Location = new System.Drawing.Point(1179, 123);
-            this.lblP5.Name = "lblP5";
-            this.lblP5.Size = new System.Drawing.Size(126, 39);
-            this.lblP5.TabIndex = 45;
-            this.lblP5.Text = "Points 5";
-            // 
-            // lblP6
-            // 
-            this.lblP6.AutoSize = true;
-            this.lblP6.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP6.Location = new System.Drawing.Point(1179, 185);
-            this.lblP6.Name = "lblP6";
-            this.lblP6.Size = new System.Drawing.Size(126, 39);
-            this.lblP6.TabIndex = 46;
-            this.lblP6.Text = "Points 6";
-            // 
-            // lblP7
-            // 
-            this.lblP7.AutoSize = true;
-            this.lblP7.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP7.Location = new System.Drawing.Point(1172, 241);
-            this.lblP7.Name = "lblP7";
-            this.lblP7.Size = new System.Drawing.Size(126, 39);
-            this.lblP7.TabIndex = 47;
-            this.lblP7.Text = "Points 7";
-            // 
-            // lblP8
-            // 
-            this.lblP8.AutoSize = true;
-            this.lblP8.Font = new System.Drawing.Font("Comic Sans MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblP8.Location = new System.Drawing.Point(1172, 298);
-            this.lblP8.Name = "lblP8";
-            this.lblP8.Size = new System.Drawing.Size(126, 39);
-            this.lblP8.TabIndex = 48;
-            this.lblP8.Text = "Points 8";
             // 
             // txtbCreateQuestionare
             // 
@@ -375,50 +211,174 @@
             // 
             // btnFinishCreate
             // 
+            this.btnFinishCreate.BackColor = System.Drawing.Color.Transparent;
+            this.btnFinishCreate.BackgroundImage = global::FamilyFeud.Properties.Resources.CREATEBUTTON;
+            this.btnFinishCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnFinishCreate.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinishCreate.Location = new System.Drawing.Point(62, 677);
             this.btnFinishCreate.Name = "btnFinishCreate";
             this.btnFinishCreate.Size = new System.Drawing.Size(161, 51);
             this.btnFinishCreate.TabIndex = 50;
-            this.btnFinishCreate.Text = "Finish";
-            this.btnFinishCreate.UseVisualStyleBackColor = true;
+            this.btnFinishCreate.UseVisualStyleBackColor = false;
             this.btnFinishCreate.Click += new System.EventHandler(this.btnFinishCreate_Click);
             // 
             // btnGoBackToAfterStart
             // 
+            this.btnGoBackToAfterStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnGoBackToAfterStart.BackgroundImage = global::FamilyFeud.Properties.Resources.GOBACKBUTTON;
+            this.btnGoBackToAfterStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGoBackToAfterStart.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoBackToAfterStart.Location = new System.Drawing.Point(62, 618);
             this.btnGoBackToAfterStart.Name = "btnGoBackToAfterStart";
             this.btnGoBackToAfterStart.Size = new System.Drawing.Size(161, 51);
             this.btnGoBackToAfterStart.TabIndex = 51;
-            this.btnGoBackToAfterStart.Text = "Go Back";
-            this.btnGoBackToAfterStart.UseVisualStyleBackColor = true;
+            this.btnGoBackToAfterStart.UseVisualStyleBackColor = false;
             this.btnGoBackToAfterStart.Click += new System.EventHandler(this.btnGoBackToAfterStart_Click);
+            // 
+            // pbQuestionLabel
+            // 
+            this.pbQuestionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.pbQuestionLabel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbQuestionLabel.Image = global::FamilyFeud.Properties.Resources.QUESTIONTEXT;
+            this.pbQuestionLabel.Location = new System.Drawing.Point(138, 49);
+            this.pbQuestionLabel.Name = "pbQuestionLabel";
+            this.pbQuestionLabel.Size = new System.Drawing.Size(100, 50);
+            this.pbQuestionLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbQuestionLabel.TabIndex = 52;
+            this.pbQuestionLabel.TabStop = false;
+            // 
+            // pbQuestionFrame
+            // 
+            this.pbQuestionFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pbQuestionFrame.Image = global::FamilyFeud.Properties.Resources.QUESTIONFRAME;
+            this.pbQuestionFrame.Location = new System.Drawing.Point(34, 408);
+            this.pbQuestionFrame.Name = "pbQuestionFrame";
+            this.pbQuestionFrame.Size = new System.Drawing.Size(145, 64);
+            this.pbQuestionFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbQuestionFrame.TabIndex = 53;
+            this.pbQuestionFrame.TabStop = false;
+            // 
+            // pbRow1
+            // 
+            this.pbRow1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow1.Image = ((System.Drawing.Image)(resources.GetObject("pbRow1.Image")));
+            this.pbRow1.Location = new System.Drawing.Point(313, 422);
+            this.pbRow1.Name = "pbRow1";
+            this.pbRow1.Size = new System.Drawing.Size(100, 50);
+            this.pbRow1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow1.TabIndex = 54;
+            this.pbRow1.TabStop = false;
+            // 
+            // pbRow2
+            // 
+            this.pbRow2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow2.Image = ((System.Drawing.Image)(resources.GetObject("pbRow2.Image")));
+            this.pbRow2.Location = new System.Drawing.Point(313, 503);
+            this.pbRow2.Name = "pbRow2";
+            this.pbRow2.Size = new System.Drawing.Size(100, 50);
+            this.pbRow2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow2.TabIndex = 55;
+            this.pbRow2.TabStop = false;
+            // 
+            // pbRow3
+            // 
+            this.pbRow3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow3.Image = ((System.Drawing.Image)(resources.GetObject("pbRow3.Image")));
+            this.pbRow3.Location = new System.Drawing.Point(313, 587);
+            this.pbRow3.Name = "pbRow3";
+            this.pbRow3.Size = new System.Drawing.Size(100, 50);
+            this.pbRow3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow3.TabIndex = 56;
+            this.pbRow3.TabStop = false;
+            // 
+            // pbRow4
+            // 
+            this.pbRow4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow4.Image = ((System.Drawing.Image)(resources.GetObject("pbRow4.Image")));
+            this.pbRow4.Location = new System.Drawing.Point(313, 668);
+            this.pbRow4.Name = "pbRow4";
+            this.pbRow4.Size = new System.Drawing.Size(100, 50);
+            this.pbRow4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow4.TabIndex = 57;
+            this.pbRow4.TabStop = false;
+            // 
+            // pbRow8
+            // 
+            this.pbRow8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow8.Image = ((System.Drawing.Image)(resources.GetObject("pbRow8.Image")));
+            this.pbRow8.Location = new System.Drawing.Point(469, 668);
+            this.pbRow8.Name = "pbRow8";
+            this.pbRow8.Size = new System.Drawing.Size(100, 50);
+            this.pbRow8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow8.TabIndex = 61;
+            this.pbRow8.TabStop = false;
+            // 
+            // pbRow7
+            // 
+            this.pbRow7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow7.Image = ((System.Drawing.Image)(resources.GetObject("pbRow7.Image")));
+            this.pbRow7.Location = new System.Drawing.Point(469, 587);
+            this.pbRow7.Name = "pbRow7";
+            this.pbRow7.Size = new System.Drawing.Size(100, 50);
+            this.pbRow7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow7.TabIndex = 60;
+            this.pbRow7.TabStop = false;
+            // 
+            // pbRow6
+            // 
+            this.pbRow6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow6.Image = ((System.Drawing.Image)(resources.GetObject("pbRow6.Image")));
+            this.pbRow6.Location = new System.Drawing.Point(469, 503);
+            this.pbRow6.Name = "pbRow6";
+            this.pbRow6.Size = new System.Drawing.Size(100, 50);
+            this.pbRow6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow6.TabIndex = 59;
+            this.pbRow6.TabStop = false;
+            // 
+            // pbRow5
+            // 
+            this.pbRow5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(40)))), ((int)(((byte)(98)))));
+            this.pbRow5.Image = ((System.Drawing.Image)(resources.GetObject("pbRow5.Image")));
+            this.pbRow5.Location = new System.Drawing.Point(469, 422);
+            this.pbRow5.Name = "pbRow5";
+            this.pbRow5.Size = new System.Drawing.Size(100, 50);
+            this.pbRow5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRow5.TabIndex = 58;
+            this.pbRow5.TabStop = false;
+            // 
+            // pbAnswersFrame
+            // 
+            this.pbAnswersFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pbAnswersFrame.Image = global::FamilyFeud.Properties.Resources.FRAMEREALOUTER;
+            this.pbAnswersFrame.Location = new System.Drawing.Point(685, 467);
+            this.pbAnswersFrame.Name = "pbAnswersFrame";
+            this.pbAnswersFrame.Size = new System.Drawing.Size(229, 146);
+            this.pbAnswersFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAnswersFrame.TabIndex = 62;
+            this.pbAnswersFrame.TabStop = false;
+            this.pbAnswersFrame.Click += new System.EventHandler(this.pbAnswersFrame_Click);
             // 
             // Create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FamilyFeud.Properties.Resources.BACKGROUNDPLAY;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1562, 893);
+            this.Controls.Add(this.pbAnswersFrame);
+            this.Controls.Add(this.pbRow8);
+            this.Controls.Add(this.pbRow7);
+            this.Controls.Add(this.pbRow6);
+            this.Controls.Add(this.pbRow5);
+            this.Controls.Add(this.pbRow4);
+            this.Controls.Add(this.pbRow3);
+            this.Controls.Add(this.pbRow2);
+            this.Controls.Add(this.pbRow1);
+            this.Controls.Add(this.pbQuestionFrame);
+            this.Controls.Add(this.pbQuestionLabel);
             this.Controls.Add(this.btnGoBackToAfterStart);
             this.Controls.Add(this.btnFinishCreate);
             this.Controls.Add(this.txtbCreateQuestionare);
-            this.Controls.Add(this.lblP8);
-            this.Controls.Add(this.lblP7);
-            this.Controls.Add(this.lblP6);
-            this.Controls.Add(this.lblP5);
-            this.Controls.Add(this.lblP3);
-            this.Controls.Add(this.lblP2);
-            this.Controls.Add(this.lblP4);
-            this.Controls.Add(this.lblP1);
-            this.Controls.Add(this.lblQ8);
-            this.Controls.Add(this.lblQ7);
-            this.Controls.Add(this.lblQ4);
-            this.Controls.Add(this.lblQ3);
-            this.Controls.Add(this.lblQ5);
-            this.Controls.Add(this.lblQ2);
-            this.Controls.Add(this.lblQ6);
-            this.Controls.Add(this.lblQ1);
             this.Controls.Add(this.txtbCreatePoints8);
             this.Controls.Add(this.txtbCreateQuestion8);
             this.Controls.Add(this.txtbCreatePoints7);
@@ -435,18 +395,27 @@
             this.Controls.Add(this.txtbCreateQuestion2);
             this.Controls.Add(this.txtbCreatePoints1);
             this.Controls.Add(this.txtbCreateQuestion1);
-            this.Controls.Add(this.lblTopQuestion);
             this.Name = "Create";
             this.Text = "Create";
             this.Load += new System.EventHandler(this.Create_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionFrame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRow5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnswersFrame)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblTopQuestion;
         private System.Windows.Forms.TextBox txtbCreateQuestion1;
         private System.Windows.Forms.TextBox txtbCreatePoints1;
         private System.Windows.Forms.TextBox txtbCreateQuestion2;
@@ -463,24 +432,19 @@
         private System.Windows.Forms.TextBox txtbCreateQuestion6;
         private System.Windows.Forms.TextBox txtbCreatePoints5;
         private System.Windows.Forms.TextBox txtbCreateQuestion5;
-        private System.Windows.Forms.Label lblQ1;
-        private System.Windows.Forms.Label lblQ6;
-        private System.Windows.Forms.Label lblQ2;
-        private System.Windows.Forms.Label lblQ5;
-        private System.Windows.Forms.Label lblQ3;
-        private System.Windows.Forms.Label lblQ4;
-        private System.Windows.Forms.Label lblQ7;
-        private System.Windows.Forms.Label lblQ8;
-        private System.Windows.Forms.Label lblP1;
-        private System.Windows.Forms.Label lblP4;
-        private System.Windows.Forms.Label lblP2;
-        private System.Windows.Forms.Label lblP3;
-        private System.Windows.Forms.Label lblP5;
-        private System.Windows.Forms.Label lblP6;
-        private System.Windows.Forms.Label lblP7;
-        private System.Windows.Forms.Label lblP8;
         private System.Windows.Forms.TextBox txtbCreateQuestionare;
         private System.Windows.Forms.Button btnFinishCreate;
         private System.Windows.Forms.Button btnGoBackToAfterStart;
+        private System.Windows.Forms.PictureBox pbQuestionLabel;
+        private System.Windows.Forms.PictureBox pbQuestionFrame;
+        private System.Windows.Forms.PictureBox pbRow1;
+        private System.Windows.Forms.PictureBox pbRow2;
+        private System.Windows.Forms.PictureBox pbRow3;
+        private System.Windows.Forms.PictureBox pbRow4;
+        private System.Windows.Forms.PictureBox pbRow8;
+        private System.Windows.Forms.PictureBox pbRow7;
+        private System.Windows.Forms.PictureBox pbRow6;
+        private System.Windows.Forms.PictureBox pbRow5;
+        private System.Windows.Forms.PictureBox pbAnswersFrame;
     }
 }

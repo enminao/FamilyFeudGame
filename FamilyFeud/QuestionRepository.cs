@@ -127,5 +127,56 @@ namespace FamilyFeud
 
             return results;
         }
+        public void RenameQuestionSet(int questionSetId, string newText)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var cmd = new SqlCommand(
+                    "UPDATE QuestionSets SET QuestionText = @Text WHERE QuestionSetId = @Id",
+                    connection))
+                {
+                    cmd.Parameters.AddWithValue("@Text", newText);
+                    cmd.Parameters.AddWithValue("@Id", questionSetId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void DeleteQuestionSet(int questionSetId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (var cmd = new SqlCommand(
+                            "DELETE FROM QuestionAnswers WHERE QuestionSetId = @Id",
+                            connection, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", questionSetId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        using (var cmd = new SqlCommand(
+                            "DELETE FROM QuestionSets WHERE QuestionSetId = @Id",
+                            connection, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", questionSetId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
     }
 }

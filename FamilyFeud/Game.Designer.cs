@@ -56,6 +56,10 @@
             this.lvTeamOneWrong = new System.Windows.Forms.ListView();
             this.lvTeamTwoWrong = new System.Windows.Forms.ListView();
             this.btnFinish = new System.Windows.Forms.Button();
+            this.pbQuestionLabel = new System.Windows.Forms.PictureBox();
+            this.pbQuestionFrame = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionFrame)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,9 +69,9 @@
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 657);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 45);
+            this.label1.Size = new System.Drawing.Size(140, 45);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Team 1";
+            this.label1.Text = "Team B";
             // 
             // label2
             // 
@@ -76,9 +80,9 @@
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(1580, 668);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 45);
+            this.label2.Size = new System.Drawing.Size(143, 45);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Team 2";
+            this.label2.Text = "Team A";
             // 
             // label3
             // 
@@ -88,9 +92,8 @@
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(35, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(316, 84);
+            this.label3.Size = new System.Drawing.Size(0, 84);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Question:";
             // 
             // lbQuestionare
             // 
@@ -291,13 +294,15 @@
             // btnGoBackToStart
             // 
             this.btnGoBackToStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGoBackToStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnGoBackToStart.BackgroundImage = global::FamilyFeud.Properties.Resources.GOBACKBUTTON;
+            this.btnGoBackToStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnGoBackToStart.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoBackToStart.Location = new System.Drawing.Point(920, 890);
             this.btnGoBackToStart.Name = "btnGoBackToStart";
             this.btnGoBackToStart.Size = new System.Drawing.Size(174, 60);
             this.btnGoBackToStart.TabIndex = 19;
-            this.btnGoBackToStart.Text = "Go Back";
-            this.btnGoBackToStart.UseVisualStyleBackColor = true;
+            this.btnGoBackToStart.UseVisualStyleBackColor = false;
             this.btnGoBackToStart.Click += new System.EventHandler(this.btnGoBackToStart_Click);
             // 
             // lblTeamOnePoints
@@ -351,20 +356,49 @@
             // btnFinish
             // 
             this.btnFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFinish.BackgroundImage = global::FamilyFeud.Properties.Resources.FINISHBUTTON;
+            this.btnFinish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnFinish.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinish.Location = new System.Drawing.Point(71, 922);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(174, 60);
             this.btnFinish.TabIndex = 18;
-            this.btnFinish.Text = "Finish";
             this.btnFinish.UseVisualStyleBackColor = true;
             this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
+            // 
+            // pbQuestionLabel
+            // 
+            this.pbQuestionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.pbQuestionLabel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbQuestionLabel.Image = global::FamilyFeud.Properties.Resources.QUESTIONTEXT;
+            this.pbQuestionLabel.Location = new System.Drawing.Point(359, 639);
+            this.pbQuestionLabel.Name = "pbQuestionLabel";
+            this.pbQuestionLabel.Size = new System.Drawing.Size(100, 50);
+            this.pbQuestionLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbQuestionLabel.TabIndex = 24;
+            this.pbQuestionLabel.TabStop = false;
+            // 
+            // pbQuestionFrame
+            // 
+            this.pbQuestionFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pbQuestionFrame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbQuestionFrame.Image = global::FamilyFeud.Properties.Resources.QUESTIONFRAME;
+            this.pbQuestionFrame.Location = new System.Drawing.Point(574, 639);
+            this.pbQuestionFrame.Name = "pbQuestionFrame";
+            this.pbQuestionFrame.Size = new System.Drawing.Size(100, 50);
+            this.pbQuestionFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbQuestionFrame.TabIndex = 25;
+            this.pbQuestionFrame.TabStop = false;
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FamilyFeud.Properties.Resources.GAMEBACKGROUND;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1757, 1017);
+            this.Controls.Add(this.pbQuestionFrame);
+            this.Controls.Add(this.pbQuestionLabel);
             this.Controls.Add(this.lvTeamTwoWrong);
             this.Controls.Add(this.lvTeamOneWrong);
             this.Controls.Add(this.lblTeamTwoPoints);
@@ -396,6 +430,8 @@
             this.Text = "Game";
             this.Load += new System.EventHandler(this.Game_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQuestionFrame)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,5 +466,7 @@
         private System.Windows.Forms.ListView lvTeamOneWrong;
         private System.Windows.Forms.ListView lvTeamTwoWrong;
         private System.Windows.Forms.Button btnFinish;
+        private System.Windows.Forms.PictureBox pbQuestionLabel;
+        private System.Windows.Forms.PictureBox pbQuestionFrame;
     }
 }

@@ -118,7 +118,100 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="QUESTIONTEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QUESTIONTEXT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QUITGAME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QUITGAME.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GOBACKBUTTON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GOBACKBUTTON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FRAMEOUTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FRAMEOUTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STARTBACKGROUND" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STARTBACKGROUND.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FRAMETEAM_ACTIVE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FRAMETEAM_ACTIVE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FRAMEROW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FRAMEROW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STARTGAME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STARTGAME.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QUESTIONSTEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QUESTIONSTEXT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FINISHBUTTON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FINISHBUTTON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CREATEBUTTON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CREATEBUTTON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BACKGROUNDPLAY" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BACKGROUNDPLAY.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WrongSymbol" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WrongSymbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FRAMEREALOUTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FRAMEREALOUTER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FRAMEROWREAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FRAMEROWREAL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QUESTIONFRAME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QUESTIONFRAME.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LISTFRAME" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LISTFRAME.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FRAMETEAM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FRAMETEAM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STARTGAME1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STARTGAME1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExplicitLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExplicitLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cover_blank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cover_blank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FAMILYFEUDLOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FAMILYFEUDLOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GAMEBACKGROUND" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GAMEBACKGROUND.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BuzzerSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuzzerSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

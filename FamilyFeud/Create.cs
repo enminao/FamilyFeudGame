@@ -2,33 +2,96 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
-//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using System.Xml.Linq;
 
 namespace FamilyFeud
 {
     public partial class Create : Form
     {
+        private readonly Form owner;
+        private const float DesignW = 1917f;  
+        private const float DesignH = 1077f;
+        private Rectangle play;             
+        private Size finishBaseSize, backBaseSize;
+        private Font currentFont;        
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; 
+                return cp;
+            }
+        }
         public Create()
         {
             InitializeComponent();
+            SuspendLayout();
+
+            SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint, true);
+            UpdateStyles();
+
+            finishBaseSize = btnFinishCreate.Size;
+            backBaseSize = btnGoBackToAfterStart.Size;
+
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.Black;
+
+            StyleImageButton(btnFinishCreate, Properties.Resources.CREATEBUTTON);
+            StyleImageButton(btnGoBackToAfterStart, Properties.Resources.GOBACKBUTTON);
+            StyleQuestionBox();
+            StyleAnswerBoxes();
+
+            FormBorderStyle = FormBorderStyle.None;
+            StartPosition = FormStartPosition.Manual;
+            Bounds = Screen.PrimaryScreen.Bounds;
+
+            PrebuildBackground();       
+            CenterLayout();
+            FormHelper.EnableDoubleBuffer(this);
+
+            ResumeLayout(true);
+        }
+        public Create(Form owner) : this()
+        {
+            this.owner = owner;
         }
 
+        private void PrebuildBackground()
+        {
+            Image src = BackgroundImage;    
+            if (src == null) return;
+
+            var bmp = new Bitmap(Bounds.Width, Bounds.Height);
+            using (var g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.Black);
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+                float s = Math.Min((float)bmp.Width / src.Width, (float)bmp.Height / src.Height);
+                int w = (int)(src.Width * s);
+                int h = (int)(src.Height * s);
+                g.DrawImage(src, (bmp.Width - w) / 2, (bmp.Height - h) / 2, w, h);
+            }
+
+            BackgroundImage = bmp;
+            BackgroundImageLayout = ImageLayout.None;
+        }
         private void Create_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.Bounds = Screen.PrimaryScreen.Bounds;
 
-            CenterLayout();
         }
+
         private void Create_Resize(object sender, EventArgs e)
         {
             CenterLayout();
@@ -51,7 +114,7 @@ namespace FamilyFeud
 
                 if (!int.TryParse(pointsBox.Text.Trim(), out int points))
                 {
-                    MessageBox.Show($"Points for Question {i} must be a whole number.");
+                    ConfirmPrompt.Notify(this, $"Points for Question {i} must be a whole number.");
                     return;
                 }
 
@@ -65,7 +128,7 @@ namespace FamilyFeud
 
             if (set.Answers.Count == 0)
             {
-                MessageBox.Show("Enter at least one answer.");
+                ConfirmPrompt.Notify(this, "Enter at least one answer.");
                 return;
             }
             try
@@ -74,9 +137,8 @@ namespace FamilyFeud
                 var repo = new QuestionRepository(connStr);
                 int newSetId = repo.SaveQuestionSet(set);
 
-                MessageBox.Show($"Saved! Question Set ID: {newSetId}");
+                ConfirmPrompt.Notify(this, $"Saved! Question Set ID: {newSetId}");
 
-                
                 txtbCreateQuestionare.Clear();
                 for (int i = 1; i <= 8; i++)
                 {
@@ -86,91 +148,174 @@ namespace FamilyFeud
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Save failed: " + ex.Message);
+                ConfirmPrompt.Notify(this, "Save failed: " + ex.Message);
             }
-
         }
 
         private void btnGoBackToAfterStart_Click(object sender, EventArgs e)
         {
-            AfterStart backToAfterStart = new AfterStart();
+            if (owner != null)
+                owner.Show();
+            else
+                new AfterStart().Show();
 
-            backToAfterStart.Show();
-
-            this.Hide();
+            this.Close();
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            //if (e.KeyCode == Keys.Escape)
-            //    this.Close();
+
         }
+
+        private TextBox Box(string name)
+        {
+            return (TextBox)this.Controls.Find(name, true)[0];
+        }
+
+        private Rectangle D(double x, double y, double wd, double ht)
+        {
+            float s = play.Width / DesignW;
+            return new Rectangle(
+                play.Left + (int)(x * s),
+                play.Top + (int)(y * s),
+                (int)(wd * s),
+                (int)(ht * s));
+        }
+
+
 
         private void CenterLayout()
         {
-            int w = this.ClientSize.Width;
-            int h = this.ClientSize.Height;
-            int centerX = w / 2;
+                  
+            if (ClientSize.Width == 0 || ClientSize.Height == 0) return;   
 
-            int qTotalWidth = lblTopQuestion.Width + 10 + txtbCreateQuestionare.Width;
-            lblTopQuestion.Left = centerX - (qTotalWidth / 2);
-            lblTopQuestion.Top = (int)(h * 0.05);
-            txtbCreateQuestionare.Left = lblTopQuestion.Right + 10;
-            txtbCreateQuestionare.Top = lblTopQuestion.Top - 3;
+            this.SuspendLayout();
 
-            int topMargin = (int)(h * 0.20);
-            int rowGap = (int)(h * 0.08);
-            int labelTextboxGap = 10;
-            int pairGap = 20;
+            float scale = Math.Min(ClientSize.Width / DesignW, ClientSize.Height / DesignH);
+            int pw = (int)(DesignW * scale);
+            int ph = (int)(DesignH * scale);
+            play = new Rectangle((ClientSize.Width - pw) / 2, (ClientSize.Height - ph) / 2, pw, ph);
 
+            ApplyFonts(scale);
 
-            int leftColLeft = (int)(w * 0.10);
-            Label[] leftLabels = { lblQ1, lblQ2, lblQ3, lblQ4 };
-            TextBox[] leftBoxes = { txtbCreateQuestion1, txtbCreateQuestion2, txtbCreateQuestion3, txtbCreateQuestion4 };
-            Label[] leftPLabels = { lblP1, lblP2, lblP3, lblP4 };
-            TextBox[] leftPBoxes = { txtbCreatePoints1, txtbCreatePoints2, txtbCreatePoints3, txtbCreatePoints4 };
+            btnFinishCreate.Bounds = D(100, 910, 290, 90);
+            btnGoBackToAfterStart.Bounds = D(1529, 910, 296, 100);
 
-            for (int i = 0; i < 4; i++)
+            pbQuestionLabel.SizeMode = PictureBoxSizeMode.Zoom;
+            pbQuestionLabel.Bounds = D(180, 74, 247, 91);
+            pbQuestionFrame.Bounds = D(449, 78, 1282, 98);
+
+            int pad = (int)(play.Width * 0.0115);
+            txtbCreateQuestionare.Left = pbQuestionFrame.Left + pad;
+            txtbCreateQuestionare.Width = pbQuestionFrame.Width - pad * 2;
+            txtbCreateQuestionare.Top = pbQuestionFrame.Top + (pbQuestionFrame.Height - txtbCreateQuestionare.Height) / 2;
+
+            pbQuestionFrame.SendToBack();
+            txtbCreateQuestionare.BringToFront();
+
+            LayoutAnswerBoxes();
+
+            this.ResumeLayout();
+        }
+
+        private PictureBox Pic(string name)
+        {
+            return (PictureBox) this.Controls.Find(name, true)[0];
+        }
+        private void LayoutAnswerBoxes()
+        {
+
+            pbAnswersFrame.Bounds = D(190, 215, 1537, 685);
+
+            for (int i = 0; i < 8; i++)
             {
-                int rowTop = topMargin + (rowGap * i);
-                leftLabels[i].Left = leftColLeft;
-                leftLabels[i].Top = rowTop;
-                leftBoxes[i].Left = leftLabels[i].Right + labelTextboxGap;
-                leftBoxes[i].Top = rowTop - 3;
-                leftPLabels[i].Left = leftBoxes[i].Right + pairGap;
-                leftPLabels[i].Top = rowTop;
-                leftPBoxes[i].Left = leftPLabels[i].Right + labelTextboxGap;
-                leftPBoxes[i].Top = rowTop - 3;
+                int col = i / 4;  
+                int row = i % 4;
+
+                double rx = 218 + col * (725 + 31);  
+                double ry = 243 + row * (142 + 20);  
+
+                Pic($"pbRow{i + 1}").Bounds = D(rx, ry, 725, 142);
+
+                Rectangle qArea = D(rx + 26, ry, 531, 142);
+                Rectangle pArea = D(rx + 591, ry, 105, 142);
+
+                TextBox q = Box($"txtbCreateQuestion{i + 1}");
+                q.Left = qArea.Left;
+                q.Width = qArea.Width;
+                q.Top = qArea.Top + (qArea.Height - q.Height) / 2;
+
+                TextBox p = Box($"txtbCreatePoints{i + 1}");
+                p.Left = pArea.Left;
+                p.Width = pArea.Width;
+                p.Top = pArea.Top + (pArea.Height - p.Height) / 2;
             }
 
-
-            int rightColLeft = (int)(w * 0.52);
-            Label[] rightLabels = { lblQ5, lblQ6, lblQ7, lblQ8 };
-            TextBox[] rightBoxes = { txtbCreateQuestion5, txtbCreateQuestion6, txtbCreateQuestion7, txtbCreateQuestion8 };
-            Label[] rightPLabels = { lblP5, lblP6, lblP7, lblP8 };
-            TextBox[] rightPBoxes = { txtbCreatePoints5, txtbCreatePoints6, txtbCreatePoints7, txtbCreatePoints8 };
-
-            for (int i = 0; i < 4; i++)
+            for(int i = 1; i <= 8; i++) Pic($"pbRow{i}").SendToBack();
+            pbAnswersFrame.SendToBack();
+            for (int i = 1; i <= 8; i++)
             {
-                int rowTop = topMargin + (rowGap * i);
-                rightLabels[i].Left = rightColLeft;
-                rightLabels[i].Top = rowTop;
-                rightBoxes[i].Left = rightLabels[i].Right + labelTextboxGap;
-                rightBoxes[i].Top = rowTop - 3;
-                rightPLabels[i].Left = rightBoxes[i].Right + pairGap;
-                rightPLabels[i].Top = rowTop;
-                rightPBoxes[i].Left = rightPLabels[i].Right + labelTextboxGap;
-                rightPBoxes[i].Top = rowTop - 3;
+                Box($"txtbCreateQuestion{i}").BringToFront();
+                Box($"txtbCreatePoints{i}").BringToFront();
+            }
+        }
+
+        private void ApplyFonts(float scale)
+        {
+            float px = 44f * scale;   
+
+            var newFont = new Font(txtbCreateQuestionare.Font.FontFamily, px, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            txtbCreateQuestionare.Font = newFont;
+            for (int i = 1; i <= 8; i++)
+            {
+                Box($"txtbCreateQuestion{i}").Font = newFont;
+                Box($"txtbCreatePoints{i}").Font = newFont;
             }
 
-            int sideInset = (int)(w * 0.08);
-            int bottomGap = (int)(h * 0.04);
+            currentFont?.Dispose(); 
+            currentFont = newFont;
+        }
 
-            btnFinishCreate.Left = sideInset;
-            btnFinishCreate.Top = h - bottomGap - btnFinishCreate.Height;
+        private void StyleQuestionBox()
+        {
+            txtbCreateQuestionare.Multiline = false;
+            txtbCreateQuestionare.BorderStyle = BorderStyle.None;
+            txtbCreateQuestionare.BackColor = Color.FromArgb(14, 40, 98);
+            txtbCreateQuestionare.ForeColor = Color.FromArgb(255, 236, 170);
+        }
+        private void StyleAnswerBoxes()
+        {
+            for (int i = 1; i <= 8; i++)
+            {
+                TextBox q = Box($"txtbCreateQuestion{i}");
+                TextBox p = Box($"txtbCreatePoints{i}");
 
-            btnGoBackToAfterStart.Left = w - sideInset - btnGoBackToAfterStart.Width;
-            btnGoBackToAfterStart.Top = h - bottomGap - btnGoBackToAfterStart.Height;
+                foreach (TextBox t in new[] { q, p })
+                {
+                    t.BorderStyle = BorderStyle.None;
+                    t.BackColor = Color.FromArgb(14, 40, 98); 
+                    t.ForeColor = Color.FromArgb(255, 236, 170); 
+                }
+            }
+        }
+
+        private void pbAnswersFrame_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StyleImageButton(Button b, Image img)
+        {
+            b.Text = "";
+            b.FlatStyle = FlatStyle.Flat;
+            b.FlatAppearance.BorderSize = 0;
+            b.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            b.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            b.BackColor = Color.Transparent;
+            b.UseVisualStyleBackColor = false;
+            b.BackgroundImage = img;
+            b.BackgroundImageLayout = ImageLayout.Zoom;
         }
     }
 }
